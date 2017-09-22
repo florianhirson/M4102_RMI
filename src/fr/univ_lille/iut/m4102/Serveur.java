@@ -5,8 +5,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Serveur {
-
-private ServerSocket serveurSocket = null;
+	private ServerSocket serveurSocket = null;
 	
 	public Serveur(int port) {
 		try {
@@ -27,19 +26,15 @@ private ServerSocket serveurSocket = null;
 				e.printStackTrace();
 				System.exit(1);
 			}
-		
-			realiseService(unClient);
+
+			TalonCalculatrice TC = new TalonCalculatrice(unClient);
 		}
-	}
-	
-	private void realiseService(Socket unClient) {
-		new TalonCalculatrice(unClient).run();
 	}
 	
 	public static void main(String[] args) {
 		Serveur serveur = new Serveur(3131);
+		
 		serveur.miseEnService();
 	}
-
 
 }
