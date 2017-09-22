@@ -18,9 +18,8 @@ public class Calculatrice {
 		return nb1 * nb2;
 	}
 	
-	public double division(double nb1, double nb2) throws Exception {
-		if(nb2 == 0) 
-			throw new Exception("Division par zero !");
+	public double division(double nb1, double nb2) throws DivisionParZero {
+		if(nb2 == 0) throw new DivisionParZero("Division par zero !");
 		return nb1 / nb2;
 	}
 }
