@@ -7,11 +7,11 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class TalonCalculatrice implements Runnable{
+public class TalonStringFun implements Runnable{
 	
 	Socket unClient;
 	
-	public TalonCalculatrice(Socket unClient) {
+	public TalonStringFun(Socket unClient) {
 		this.unClient = unClient;
 		this.run();
 	}

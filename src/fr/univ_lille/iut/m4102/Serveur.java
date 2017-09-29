@@ -27,7 +27,7 @@ public class Serveur {
 				System.exit(1);
 			}
 
-			TalonCalculatrice TC = new TalonCalculatrice(unClient);
+			TalonStringFun TC = new TalonStringFun(unClient);
 		}
 	}
 	
