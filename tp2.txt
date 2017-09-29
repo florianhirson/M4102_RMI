@@ -1,0 +1,120 @@
+1) Decoupage URI
+   -http://www.univ-lille1.fr/Accueil/Contacts/Services+%C3%A9tudiants/
+	http : protocole utilisé
+	www.univ-lille1.fr : serveur
+	/Accueil/Contacts/Services+%C3%A9tudiants/ : lien vers la ressource étudiant
+	
+   -https://tools.ietf.org/html/rfc3986
+	https : protocole utilisé
+	tools.ietf.org : serveur
+	html/rfc3986 : lien vers la ressource rfc3986
+
+   -http://localhost:8080/users/1
+	http : protocole utilisé
+	localhost:8080 : serveur avec num de port
+	users/1 : lien vers la ressource 1
+
+   -http://traduction.culturecommunication.gouv.fr/url/Result.aspx?to=en&url=http%3A%2F%2Fwww.culturecommunication.gouv.fr%2F
+   	http : protocole utilisé
+	traduction.culturecommunication.gouv.fr : serveur
+	url/Result.aspx : lien vers la ressource Result.aspx
+	to=en&url=http%3A%2F%2Fwww.culturecommunication.gouv.fr%2F : paramètre de requete
+
+2) Analyse de requête HTTP
+   (a) Analysez les requêtes suivantes et reconstituez l'URL utilisée
+
+       i. GET /code/ HTTP/1.1
+       	  User-Agent: curl/7.38.0
+	  Host: graphql.org
+	  Accept: */*
+
+	  URL : graphql.org/code/
+	  
+       ii. POST /post HTTP/1.1
+	  User-Agent: curl/7.38.0
+	  Host: httpbin.org
+	  Accept: */*
+	  Content-Length: 17
+	  Content-Type: application/x-www-form-urlencoded
+	  foo=bar&toto=tutu
+
+	  URL : httpbin.org/
+
+   (b) Quelle méthode à été utilisée pour générer la réponse suivante ? Quel a été sont les effets sur le serveur ?
+
+       HTTP/1.1 201 Created
+       location: /tasks/1
+       cache-control: no-cache
+       content-length: 0
+       Date: Fri, 29 Sep 2017 08:39:23 GMT
+       Connection: keep-alive
+
+       méthode : PUT
+       effets sur le serveur: création du fichier 1 dans le dossier tasks et maintient de l'ouverture de la commande
+
+3) Ecriture de requete
+
+   GET /code/ HTTP/1.1
+       	  User-Agent: curl/7.38.0
+	  Host: graphql.org
+	  Accept: */*
+
+4)
+	1)	  GET http://graphql.org/code/ HTTP/1.1
+   		  > Host: graphql.org
+		  > User-Agent: curl/7.52.1
+		  > Accept: */*
+		  > Proxy-Connection: Keep-Alive
+		  > 
+		  * HTTP 1.0, assume close after body
+		  < HTTP/1.0 200 OK
+		  < Server: GitHub.com
+		  < Content-Type: text/html; charset=utf-8
+		  < Last-Modified: Wed, 27 Sep 2017 22:33:36 GMT
+		  < Access-Control-Allow-Origin: *
+		  < Expires: Thu, 28 Sep 2017 00:30:29 GMT
+		  < Cache-Control: max-age=600
+		  < X-GitHub-Request-Id: 9E96:4F01:9F8966:AD9A6E:59CC404D
+		  < Content-Length: 52018
+		  < Accept-Ranges: bytes
+		  < Date: Fri, 29 Sep 2017 13:05:30 GMT
+		  < Age: 153
+		  < X-Served-By: cache-sea1023-SEA
+		  < X-Cache: HIT
+		  < X-Cache-Hits: 1
+		  < X-Timer: S1506690331.764061,VS0,VE1
+		  < Vary: Accept-Encoding
+		  < X-Fastly-Request-ID: cc64dab3b9af9a6f246848996e9308e9d3365e4a
+		  < X-Cache: MISS from cacheserv3.univ-lille1.fr
+		  < Via: 1.1 varnish, 1.1 cacheserv3.univ-lille1.fr:3128 (squid/2.7.STABLE5-20081024)
+		  * HTTP/1.0 connection set to keep alive!
+		  < Connection: keep-alive
+		  * HTTP/1.0 proxy connection set to keep alive!
+		  < Proxy-Connection: keep-alive
+
+	2) GET http://httpbin.org/ HTTP/1.1
+	   > Host: httpbin.org
+	   > User-Agent: curl/7.52.1
+	   > Accept: */*
+	   > Proxy-Connection: Keep-Alive
+	   > 
+	   * HTTP 1.0, assume close after body
+	   < HTTP/1.0 200 OK
+	   < Server: meinheld/0.6.1
+	   < Date: Fri, 29 Sep 2017 13:06:57 GMT
+	   < Content-Type: text/html; charset=utf-8
+	   < Content-Length: 13011
+	   < Access-Control-Allow-Origin: *
+	   < Access-Control-Allow-Credentials: true
+	   < X-Powered-By: Flask
+	   < X-Processed-Time: 0.00840187072754
+	   < X-Cache: MISS from cacheserv3.univ-lille1.fr
+	   < Via: 1.1 vegur, 1.1 cacheserv3.univ-lille1.fr:3128 (squid/2.7.STABLE5-20081024)
+	   * HTTP/1.0 connection set to keep alive!
+	   < Connection: keep-alive
+	   * HTTP/1.0 proxy connection set to keep alive!
+	   < Proxy-Connection: keep-alive
+
+
+
+
